@@ -34,21 +34,45 @@
     <h1>The Best Randomizer</h1>
     <p>Let fate decide which episode you should watch!</p>
     
+    <label for="show">Choose a TV Show:</label>
+    <select id="show" onchange="updateLimits()">
+        <option value="friends">Friends</option>
+        <option value="greys">Grey's Anatomy</option>
+        <option value="bigbang">The Big Bang Theory</option>
+    </select>
+    
+    <br><br>
+    
     <button class="btn" onclick="randomizeSeason()">Decide the Season</button>
     <button class="btn" onclick="randomizeEpisode()">Decide the Episode</button>
     
     <p id="result"></p>
     
     <script>
+        const showData = {
+            "friends": { seasons: 10, episodes: 24 },
+            "greys": { seasons: 20, episodes: 25 },
+            "bigbang": { seasons: 12, episodes: 24 }
+        };
+
+        let currentShow = "friends";
+
+        function updateLimits() {
+            currentShow = document.getElementById("show").value;
+        }
+
         function randomizeSeason() {
-            let season = Math.floor(Math.random() * 20) + 1;
+            let maxSeasons = showData[currentShow].seasons;
+            let season = Math.floor(Math.random() * maxSeasons) + 1;
             document.getElementById("result").innerText = "Season: " + season;
         }
 
         function randomizeEpisode() {
-            let episode = Math.floor(Math.random() * 25) + 1;
+            let maxEpisodes = showData[currentShow].episodes;
+            let episode = Math.floor(Math.random() * maxEpisodes) + 1;
             document.getElementById("result").innerText = "Episode: " + episode;
         }
     </script>
 </body>
 </html>
+
