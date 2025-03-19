@@ -49,6 +49,7 @@
 <body>
     <h1>The Best Randomizer</h1>
     <p>Let fate decide which episode you should watch!</p>
+    <p>Get a quick funny quote!</p>
     
     <label for="show">Choose a TV Show:</label>
     <select id="show" onchange="updateLimits()">
@@ -62,6 +63,7 @@
     <button class="btn" onclick="randomizeSeason()">Decide the Season</button>
     <button class="btn" onclick="randomizeEpisode()">Decide the Episode</button>
     <p>Get a quick funny quote!</p>
+    
     <p id="result"></p>
     
     <div id="bottom-section">
@@ -86,13 +88,13 @@
         function randomizeSeason() {
             let maxSeasons = showData[currentShow].seasons;
             let season = Math.floor(Math.random() * maxSeasons) + 1;
-            document.getElementById("result").innerText = "Season: " + season;
+            document.getElementById("result").innerText = "Season: " + season + " | ";
         }
 
         function randomizeEpisode() {
             let maxEpisodes = showData[currentShow].episodes;
             let episode = Math.floor(Math.random() * maxEpisodes) + 1;
-            document.getElementById("result").innerText = "Episode: " + episode;
+            document.getElementById("result").innerText += "Episode: " + episode;
         }
 
         function randomizeMinute() {
@@ -108,4 +110,5 @@
     </script>
 </body>
 </html>
+
 
