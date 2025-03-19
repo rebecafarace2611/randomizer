@@ -23,10 +23,26 @@
         .btn:hover {
             background: #0056b3;
         }
+        .red-btn {
+            padding: 15px 25px;
+            margin: 10px;
+            font-size: 16px;
+            background: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .red-btn:hover {
+            background: darkred;
+        }
         #result {
             margin-top: 20px;
             font-size: 20px;
             font-weight: bold;
+        }
+        #bottom-section {
+            margin-top: 50px;
         }
     </style>
 </head>
@@ -48,11 +64,17 @@
     
     <p id="result"></p>
     
+    <div id="bottom-section">
+        <button class="red-btn" onclick="randomizeMinute()">Decide the Minute</button>
+        <button class="red-btn" onclick="randomizeSecond()">Decide the Second</button>
+        <p id="frame"></p>
+    </div>
+    
     <script>
         const showData = {
-            "friends": { seasons: 10, episodes: 24 },
-            "greys": { seasons: 20, episodes: 25 },
-            "bigbang": { seasons: 12, episodes: 24 }
+            "friends": { seasons: 10, episodes: 24, minutes: 22 },
+            "greys": { seasons: 20, episodes: 25, minutes: 42 },
+            "bigbang": { seasons: 12, episodes: 24, minutes: 22 }
         };
 
         let currentShow = "friends";
@@ -71,6 +93,17 @@
             let maxEpisodes = showData[currentShow].episodes;
             let episode = Math.floor(Math.random() * maxEpisodes) + 1;
             document.getElementById("result").innerText = "Episode: " + episode;
+        }
+
+        function randomizeMinute() {
+            let maxMinutes = showData[currentShow].minutes;
+            let minute = Math.floor(Math.random() * maxMinutes);
+            document.getElementById("frame").innerText = "Minute: " + minute;
+        }
+
+        function randomizeSecond() {
+            let second = Math.floor(Math.random() * 60);
+            document.getElementById("frame").innerText += " | Second: " + second;
         }
     </script>
 </body>
