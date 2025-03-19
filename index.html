@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Best Randomizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .btn {
+            padding: 15px 25px;
+            margin: 10px;
+            font-size: 16px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Best Randomizer</h1>
+    <p>Let fate decide which episode you should watch!</p>
+    
+    <button class="btn" onclick="randomizeSeason()">Decide the Season</button>
+    <button class="btn" onclick="randomizeEpisode()">Decide the Episode</button>
+    
+    <p id="result"></p>
+    
+    <script>
+        function randomizeSeason() {
+            let season = Math.floor(Math.random() * 20) + 1;
+            document.getElementById("result").innerText = "Season: " + season;
+        }
+
+        function randomizeEpisode() {
+            let episode = Math.floor(Math.random() * 25) + 1;
+            document.getElementById("result").innerText = "Episode: " + episode;
+        }
+    </script>
+</body>
+</html>
