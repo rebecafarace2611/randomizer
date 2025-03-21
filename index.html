@@ -53,6 +53,7 @@
     
     <label for="show">Choose a TV Show:</label>
     <select id="show" onchange="updateLimits()">
+        <option value="modernfamily">Modern Family</option>
         <option value="friends">Friends</option>
         <option value="greys">Grey's Anatomy</option>
         <option value="bigbang">The Big Bang Theory</option>
@@ -62,10 +63,10 @@
     
     <button class="btn" onclick="randomizeSeason()">Decide the Season</button>
     <button class="btn" onclick="randomizeEpisode()">Decide the Episode</button>
-    
+    <p>Get a quick funny quote!</p>
     
     <p id="result"></p>
-    <p>Get a quick funny quote!</p>
+    
     <div id="bottom-section">
         <button class="red-btn" onclick="randomizeMinute()">Decide the Minute</button>
         <button class="red-btn" onclick="randomizeSecond()">Decide the Second</button>
@@ -74,6 +75,7 @@
     
     <script>
         const showData = {
+            "modernfamily": { seasons: 11, episodes: 24, minutes: 22 },
             "friends": { seasons: 10, episodes: 24, minutes: 22 },
             "greys": { seasons: 20, episodes: 25, minutes: 42 },
             "bigbang": { seasons: 12, episodes: 24, minutes: 22 }
@@ -110,5 +112,6 @@
     </script>
 </body>
 </html>
+
 
 
