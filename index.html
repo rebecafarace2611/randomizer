@@ -5,37 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Best Randomizer</title>
     <style>
-        .sound-btn {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background-color: purple;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: none;
-            cursor: pointer;
-            font-size: 24px;
-            color: white;
-        }
-        .sound-btn:hover {
-            background-color: #6a0dad;
-        }
-        .btn i {
-            font-size: 24px;
-        }
-        .btn {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background-color: purple;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .btn:hover {
-            background-color: #6a0dad;
-        }
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -77,7 +46,6 @@
         }
     </style>
 </head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <body>
     <h1>The Best Randomizer</h1>
     <p>Let fate decide which episode you should watch!</p>
@@ -92,34 +60,19 @@
     
     <br><br>
     
-    <button class="sound-btn" onclick="randomizeSeason()">Decide the Season</button>
-    <p>Play Show Sound</p>
-    <p>Play Show Sound</p>
+    <button class="btn" onclick="randomizeSeason()">Decide the Season</button>
     <button class="btn" onclick="randomizeEpisode()">Decide the Episode</button>
-    <button class="btn" onclick="playSound()"></button>
+    <button class="btn" onclick="playSound()">Play Show Sound</button>
     <button class="btn" onclick="copyToClipboard()">Share This Episode</button>
-    <p id="shareText"></p>
     
     <p id="result"></p>
+    <p id="shareText"></p>
     
     <div id="bottom-section">
         <button class="red-btn" onclick="randomizeMinute()">Decide the Minute</button>
         <button class="red-btn" onclick="randomizeSecond()">Decide the Second</button>
         <p id="frame"></p>
     </div>
-    
-    <audio id="bigbang-sound">
-        <source src="Bigbangtheme.m4a" type="audio/mp4">
-    </audio>
-    <audio id="greys-sound">
-        <source src="Greys.m4a" type="audio/mp4">
-    </audio>
-    <audio id="friends-sound">
-        <source src="Friends.m4a" type="audio/mp4">
-    </audio>
-    <audio id="modernfamily-sound">
-        <source src="Modern_family.m4a" type="audio/mp4">
-    </audio>
     
     <script>
         const showData = {
@@ -160,21 +113,16 @@
 
         function playSound() {
             let sounds = {
-                "bigbang": "bigbang-sound",
-                "greys": "greys-sound",
-                "friends": "friends-sound",
-                "modernfamily": "modernfamily-sound"
+                "bigbang": "Bigbangtheme.m4a",
+                "greys": "Greys.m4a",
+                "friends": "Friends.m4a",
+                "modernfamily": "Modern_family.m4a"
             };
             
-            for (let key in sounds) {
-                document.getElementById(sounds[key]).pause();
-                document.getElementById(sounds[key]).currentTime = 0;
-            }
-            
-            document.getElementById(sounds[currentShow]).play();
+            let audio = new Audio(sounds[currentShow]);
+            audio.play();
         }
-    </script>
-    <script>
+
         function copyToClipboard() {
             let text = document.getElementById("result").innerText + " " + document.getElementById("frame").innerText;
             navigator.clipboard.writeText(text).then(() => {
