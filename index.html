@@ -63,6 +63,8 @@
     <button class="btn" onclick="randomizeSeason()">Decide the Season</button>
     <button class="btn" onclick="randomizeEpisode()">Decide the Episode</button>
     <button class="btn" onclick="playSound()">Play Show Sound</button>
+    <button class="btn" onclick="copyToClipboard()">Share This Episode</button>
+    <p id="shareText"></p>
     
     <p id="result"></p>
     
@@ -138,8 +140,19 @@
             document.getElementById(sounds[currentShow]).play();
         }
     </script>
+    <script>
+        function copyToClipboard() {
+            let text = document.getElementById("result").innerText + " " + document.getElementById("frame").innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                document.getElementById("shareText").innerText = "Copied to Clipboard! You can now share it!";
+            }).catch(err => {
+                document.getElementById("shareText").innerText = "Failed to copy. Please try again.";
+            });
+        }
+    </script>
 </body>
 </html>
+
 
 
 
