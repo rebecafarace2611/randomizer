@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Best Randomizer</title>
     <style>
+        .sound-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: purple;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+        }
+        .sound-btn:hover {
+            background-color: #6a0dad;
+        }
         .btn i {
             font-size: 24px;
         }
@@ -76,10 +92,11 @@
     
     <br><br>
     
-    <button class="btn" onclick="randomizeSeason()">Decide the Season</button>
+    <button class="sound-btn" onclick="randomizeSeason()">Decide the Season</button>
+    <p>Play Show Sound</p>
     <p>Play Show Sound</p>
     <button class="btn" onclick="randomizeEpisode()">Decide the Episode</button>
-    <button class="btn" onclick="playSound()"><i class="fa fa-play"></i></button>
+    <button class="btn" onclick="playSound()"></button>
     <button class="btn" onclick="copyToClipboard()">Share This Episode</button>
     <p id="shareText"></p>
     
@@ -169,6 +186,7 @@
     </script>
 </body>
 </html>
+
 
 
 
