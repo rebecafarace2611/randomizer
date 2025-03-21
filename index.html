@@ -49,21 +49,20 @@
 <body>
     <h1>The Best Randomizer</h1>
     <p>Let fate decide which episode you should watch!</p>
-    <p>Get a quick funny quote!</p>
     
     <label for="show">Choose a TV Show:</label>
     <select id="show" onchange="updateLimits()">
-        <option value="modernfamily">Modern Family</option>
         <option value="friends">Friends</option>
         <option value="greys">Grey's Anatomy</option>
         <option value="bigbang">The Big Bang Theory</option>
+        <option value="modernfamily">Modern Family</option>
     </select>
     
     <br><br>
     
     <button class="btn" onclick="randomizeSeason()">Decide the Season</button>
     <button class="btn" onclick="randomizeEpisode()">Decide the Episode</button>
-    <p>Get a quick funny quote!</p>
+    <button class="btn" onclick="playSound()">Play Show Sound</button>
     
     <p id="result"></p>
     
@@ -73,12 +72,25 @@
         <p id="frame"></p>
     </div>
     
+    <audio id="bigbang-sound">
+        <source src="Bigbangtheme.m4a" type="audio/mp4">
+    </audio>
+    <audio id="greys-sound">
+        <source src="Greys.m4a" type="audio/mp4">
+    </audio>
+    <audio id="friends-sound">
+        <source src="Friends.m4a" type="audio/mp4">
+    </audio>
+    <audio id="modernfamily-sound">
+        <source src="Modern_family.m4a" type="audio/mp4">
+    </audio>
+    
     <script>
         const showData = {
-            "modernfamily": { seasons: 11, episodes: 24, minutes: 22 },
             "friends": { seasons: 10, episodes: 24, minutes: 22 },
             "greys": { seasons: 20, episodes: 25, minutes: 42 },
-            "bigbang": { seasons: 12, episodes: 24, minutes: 22 }
+            "bigbang": { seasons: 12, episodes: 24, minutes: 22 },
+            "modernfamily": { seasons: 11, episodes: 24, minutes: 22 }
         };
 
         let currentShow = "friends";
@@ -108,6 +120,22 @@
         function randomizeSecond() {
             let second = Math.floor(Math.random() * 60);
             document.getElementById("frame").innerText += " | Second: " + second;
+        }
+
+        function playSound() {
+            let sounds = {
+                "bigbang": "bigbang-sound",
+                "greys": "greys-sound",
+                "friends": "friends-sound",
+                "modernfamily": "modernfamily-sound"
+            };
+            
+            for (let key in sounds) {
+                document.getElementById(sounds[key]).pause();
+                document.getElementById(sounds[key]).currentTime = 0;
+            }
+            
+            document.getElementById(sounds[currentShow]).play();
         }
     </script>
 </body>
