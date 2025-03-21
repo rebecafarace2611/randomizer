@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Best Randomizer</title>
     <style>
+        .btn i {
+            font-size: 24px;
+        }
+        .btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: purple;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .btn:hover {
+            background-color: #6a0dad;
+        }
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -46,6 +61,7 @@
         }
     </style>
 </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <body>
     <h1>The Best Randomizer</h1>
     <p>Let fate decide which episode you should watch!</p>
@@ -61,8 +77,9 @@
     <br><br>
     
     <button class="btn" onclick="randomizeSeason()">Decide the Season</button>
+    <p>Play Show Sound</p>
     <button class="btn" onclick="randomizeEpisode()">Decide the Episode</button>
-    <button class="btn" onclick="playSound()">Play Show Sound</button>
+    <button class="btn" onclick="playSound()"><i class="fa fa-play"></i></button>
     <button class="btn" onclick="copyToClipboard()">Share This Episode</button>
     <p id="shareText"></p>
     
